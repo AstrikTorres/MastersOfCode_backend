@@ -22,7 +22,7 @@ public class SolicitudesModel {
     private String descripcion;
 
     @Column(nullable = false)
-    private int presupuesto;
+    private String presupuesto;
 
     // Verificar y generar get/setter
     @Column(nullable = false, length = 50)
@@ -65,11 +65,11 @@ public class SolicitudesModel {
         this.descripcion = descripcion;
     }
 
-    public int getPresupuesto() {
+    public String getPresupuesto() {
         return presupuesto;
     }
 
-    public void setPresupuesto(int presupuesto) {
+    public void setPresupuesto(String presupuesto) {
         this.presupuesto = presupuesto;
     }
 

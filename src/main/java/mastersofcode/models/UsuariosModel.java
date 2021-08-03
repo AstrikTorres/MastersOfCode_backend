@@ -19,10 +19,10 @@ public class UsuariosModel {
     private String email;
 
     @Column(nullable = false, length = 50)
-    private String contrasena;
+    private String password;
 
-    @Column(nullable = false)
-    private int rol;
+    @Column(nullable = false, length = 20)
+    private String rol;
 
     @Column()
     private String imagen_perfil;
@@ -84,19 +84,19 @@ public class UsuariosModel {
         this.email = email;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String contrasena) {
+        this.password = contrasena;
     }
 
-    public int getRol() {
+    public String getRol() {
         return rol;
     }
 
-    public void setRol(int rol) {
+    public void setRol(String rol) {
         this.rol = rol;
     }
 

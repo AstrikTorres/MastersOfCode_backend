@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/edu")
+@RequestMapping("/educacion")
 public class EducacionController {
 
     @Autowired

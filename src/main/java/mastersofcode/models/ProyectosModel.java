@@ -26,6 +26,7 @@ public class ProyectosModel {
     @Column()
     private int precio;
 
+    // Crear tabla de valoracion y sus relaciones
     @Column()
     private int valoracion;
 

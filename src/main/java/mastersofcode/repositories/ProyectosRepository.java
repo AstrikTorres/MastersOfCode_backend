@@ -11,5 +11,4 @@ public interface ProyectosRepository extends CrudRepository<ProyectosModel, Long
 
     public abstract ArrayList<ProyectosModel> findByTitulo(String titulo);
 
-    public abstract ArrayList<ProyectosModel> findByTituloContainingOrderByValoracionDesc(String titulo);
 }

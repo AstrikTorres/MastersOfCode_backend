@@ -46,7 +46,4 @@ public class ProyectosService {
         return proyectosRepository.findByTitulo(titulo);
     }
 
-    public ArrayList<ProyectosModel> getProyectoByTituloContainingOrderByValoracionDesc(String titulo) {
-        return proyectosRepository.findByTituloContainingOrderByValoracionDesc(titulo);
-    }
 }

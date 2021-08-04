@@ -60,6 +60,9 @@ public class UsuariosModel {
     @OneToMany( targetEntity = TecnologiasModel.class, mappedBy = "usuarios")
     private List<TecnologiasModel> tecnologias;
 
+    @OneToMany( targetEntity = ResenasModel.class, mappedBy = "usuarios")
+    private List<ResenasModel> resenas;
+
     public long getId() {
         return id;
     }

@@ -26,9 +26,8 @@ public class ProyectosModel {
     @Column()
     private int precio;
 
-    // Crear tabla de valoracion y sus relaciones
-    @Column()
-    private int valoracion;
+    @OneToMany(targetEntity = ResenasModel.class, mappedBy = "proyectos")
+    private List<ResenasModel> resenas;
 
     @OneToMany( targetEntity = TecnologiasModel.class, mappedBy = "proyectos")
     private List<TecnologiasModel> tecnologias;
@@ -73,11 +72,4 @@ public class ProyectosModel {
         this.precio = precio;
     }
 
-    public int getValoracion() {
-        return valoracion;
-    }
-
-    public void setValoracion(int valoracion) {
-        this.valoracion = valoracion;
-    }
 }

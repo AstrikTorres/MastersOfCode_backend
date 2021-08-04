@@ -49,9 +49,4 @@ public class ProyectosController {
         return proyectosService.getProyectoByTitulo(titulo);
     }
 
-    @GetMapping("/valoracion")
-    public ArrayList<ProyectosModel> getByTituloOrderByValoracion
-            (@RequestParam(value = "titulo", defaultValue = "") String titulo) {
-        return proyectosService.getProyectoByTituloContainingOrderByValoracionDesc(titulo);
-    }
 }

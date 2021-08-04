@@ -1,6 +1,5 @@
 package mastersofcode.services;
 
-import mastersofcode.models.ProyectosModel;
 import mastersofcode.models.SolicitudesModel;
 import mastersofcode.repositories.SolicitudesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +19,14 @@ public class SolicitudesService {
     }
 
     public SolicitudesModel saveSolicitud(SolicitudesModel solicitud) {
-        String nombre_proyecto = solicitud.getNombre_proyecto();
+        String nombre = solicitud.getNombre();
         String descripcion = solicitud.getDescripcion();
         String presupuesto = solicitud.getPresupuesto();
         String foto = solicitud.getReferencia_foto();
         String link = solicitud.getReferencia_link();
         String tiempo_estimado = solicitud.getTiempo_estimado();
 
-        if (nombre_proyecto != null && descripcion != null && presupuesto != null &&
+        if (nombre != null && descripcion != null && presupuesto != null &&
                 foto != null && link != null && tiempo_estimado != null) {
             return solicitudesRepository.save(solicitud);
         }
@@ -47,11 +46,11 @@ public class SolicitudesService {
         }
     }
 
-    public ArrayList<SolicitudesModel> getSolicitudByNombre_proyecto(String nombre) {
-        return solicitudesRepository.findByNombre_proyecto(nombre);
+    public ArrayList<SolicitudesModel> getSolicitudByNombre(String nombre) {
+        return solicitudesRepository.findByNombre(nombre);
     }
 
-    public ArrayList<SolicitudesModel> getSolicitudByNombre_proyectoContainingOrderByIdDesc(String nombre) {
-        return solicitudesRepository.findByNombre_proyectoContainingOrderByIdDesc(nombre);
+    public ArrayList<SolicitudesModel> getSolicitudByNombreContainingOrderByIdDesc(String nombre) {
+        return solicitudesRepository.findByNombreContainingOrderByIdDesc(nombre);
     }
 }

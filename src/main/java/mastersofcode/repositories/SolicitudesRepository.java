@@ -9,9 +9,7 @@ import java.util.ArrayList;
 @Repository
 public interface SolicitudesRepository extends CrudRepository<SolicitudesModel, Long> {
 
-    public abstract ArrayList<SolicitudesModel>
-    findByNombre_proyecto(String nombre);
+    public abstract ArrayList<SolicitudesModel> findByNombre(String nombre);
 
-    public abstract ArrayList<SolicitudesModel>
-    findByNombre_proyectoContainingOrderByIdDesc(String nombre);
+    public abstract ArrayList<SolicitudesModel> findByNombreContainingOrderByIdDesc(String nombre);
 }

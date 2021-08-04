@@ -3,7 +3,6 @@ package mastersofcode.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.lang.annotation.Target;
 import java.util.List;
 
 @Entity
@@ -16,7 +15,7 @@ public class SolicitudesModel {
     private long id;
 
     @Column(nullable = false, length = 50)
-    private String nombre_proyecto;
+    private String nombre;
 
     @Column(nullable = false)
     private String descripcion;
@@ -24,7 +23,6 @@ public class SolicitudesModel {
     @Column(nullable = false)
     private String presupuesto;
 
-    // Verificar y generar get/setter
     @Column(nullable = false, length = 50)
     private String referencia_foto;
 
@@ -49,12 +47,12 @@ public class SolicitudesModel {
         this.id = id;
     }
 
-    public String getNombre_proyecto() {
-        return nombre_proyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre_proyecto(String nombre_proyecto) {
-        this.nombre_proyecto = nombre_proyecto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {

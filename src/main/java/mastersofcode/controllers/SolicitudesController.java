@@ -1,6 +1,5 @@
 package mastersofcode.controllers;
 
-import mastersofcode.models.ProyectosModel;
 import mastersofcode.models.SolicitudesModel;
 import mastersofcode.services.SolicitudesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,14 +43,14 @@ public class SolicitudesController {
     }
 
     @GetMapping("/nombre")
-    public ArrayList<SolicitudesModel> getSolicitudByNombre_proyecto
+    public ArrayList<SolicitudesModel> getSolicitudByNombre
             (@RequestParam(value = "nombre", defaultValue = "") String nombre) {
-        return solicitudesService.getSolicitudByNombre_proyecto(nombre);
+        return solicitudesService.getSolicitudByNombre(nombre);
     }
 
     @GetMapping("/recientes")
-    public ArrayList<SolicitudesModel> getByNombre_proyectoContainingOrderByIdDesc
+    public ArrayList<SolicitudesModel> getByNombreContainingOrderByIdDesc
             (@RequestParam(value = "nombre", defaultValue = "") String nombre) {
-        return solicitudesService.getSolicitudByNombre_proyectoContainingOrderByIdDesc(nombre);
+        return solicitudesService.getSolicitudByNombreContainingOrderByIdDesc(nombre);
     }
 }

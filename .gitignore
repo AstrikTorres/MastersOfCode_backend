@@ -1,6 +1,4 @@
 # Project exclude paths
 /target/
-/.jpb/
 /.idea/
-/src/main/resources/application.properties
 /lib/spring-ws.jar

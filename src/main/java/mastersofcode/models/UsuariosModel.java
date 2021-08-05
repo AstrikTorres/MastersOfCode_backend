@@ -1,5 +1,7 @@
 package mastersofcode.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,139 +9,129 @@ import java.util.List;
 @Table(name = "usuarios")
 public class UsuariosModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	private long id;
 
-    @Column(nullable = false, length = 100, name = "nombre")
-    private String name;
+	@Column(nullable = false, length = 100)
+	private String name;
 
-    @Column(nullable = false, length = 100, unique = true)
-    private String email;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(nullable = false, length = 100)
+	private String password;
 
-    @Column(nullable = false, length = 50)
-    private String password;
+	@Column(nullable = false, length = 100)
+	private String username;
 
-    @Column(nullable = false, length = 20)
-    private String rol;
+	@Column(nullable = false, length = 20)
+	private String rol;
 
-    @Column()
-    private String imagen_perfil;
+	@Column()
+	private String imagen_perfil;
 
-    @Column()
-    private String acerca;
+	@Column()
+	private String acerca;
 
-    @Column(nullable = false, length = 50)
-    private String username;
+	@Column(nullable = false, length = 50)
+	private String ciudad;
 
-    @Column(nullable = false, length = 50)
-    private String ciudad;
+	@Column(length = 15)
+	private String telefono;
 
-    @Column(length = 15)
-    private String telefono;
+	@OneToMany( targetEntity = SolicitudesModel.class, mappedBy = "usuarios")
+	private List<SolicitudesModel> solicitudes;
 
-    @OneToMany( targetEntity = SolicitudesModel.class, mappedBy = "usuarios")
-    private List<SolicitudesModel> solicitudes;
+	@OneToOne( targetEntity = ExperienciaModel.class, mappedBy = "usuarios")
+	private ExperienciaModel experiencia;
 
-    @OneToOne( targetEntity = ExperienciaModel.class, mappedBy = "usuarios")
-    private ExperienciaModel experiencia;
+	@OneToOne( targetEntity = EducacionModel.class, mappedBy = "usuarios")
+	private EducacionModel educacion;
 
-    @OneToOne( targetEntity = EducacionModel.class, mappedBy = "usuarios")
-    private EducacionModel educacion;
+	@OneToMany( targetEntity = ProyectosModel.class, mappedBy = "usuarios")
+	private List<ProyectosModel> proyectos;
 
-    @OneToMany( targetEntity = ProyectosModel.class, mappedBy = "usuarios")
-    private List<ProyectosModel> proyectos;
+	@OneToMany( targetEntity = CuentasBancariasModel.class, mappedBy = "usuarios")
+	private List<CuentasBancariasModel> cuentas;
 
-    @OneToMany( targetEntity = CuentasBancariasModel.class, mappedBy = "usuarios")
-    private List<CuentasBancariasModel> cuentas;
+	@OneToMany( targetEntity = ComprasModel.class, mappedBy = "usuarios")
+	private List<ComprasModel> compras;
 
-    @OneToMany( targetEntity = ComprasModel.class, mappedBy = "usuarios")
-    private List<ComprasModel> compras;
+	@OneToMany( targetEntity = TecnologiasModel.class, mappedBy = "usuarios")
+	private List<TecnologiasModel> tecnologias;
 
-    @OneToMany( targetEntity = TecnologiasModel.class, mappedBy = "usuarios")
-    private List<TecnologiasModel> tecnologias;
+	@OneToMany( targetEntity = ResenasModel.class, mappedBy = "usuarios")
+	private List<ResenasModel> resenas;
 
-    @OneToMany( targetEntity = ResenasModel.class, mappedBy = "usuarios")
-    private List<ResenasModel> resenas;
+	public long getId() {
+		return id;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getRol() {
+		return rol;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 
-    public void setPassword(String contrasena) {
-        this.password = contrasena;
-    }
+	public String getImagen_perfil() {
+		return imagen_perfil;
+	}
 
-    public String getRol() {
-        return rol;
-    }
+	public void setImagen_perfil(String imagen_perfil) {
+		this.imagen_perfil = imagen_perfil;
+	}
 
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+	public String getAcerca() {
+		return acerca;
+	}
 
-    public String getAcerca() {
-        return acerca;
-    }
+	public void setAcerca(String acerca) {
+		this.acerca = acerca;
+	}
 
-    public void setAcerca(String acerca) {
-        this.acerca = acerca;
-    }
+	public String getCiudad() {
+		return ciudad;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getTelefono() {
+		return telefono;
+	}
 
-    public String getCiudad() {
-        return ciudad;
-    }
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getImagen_perfil() {
-        return imagen_perfil;
-    }
-
-    public void setImagen_perfil(String imagen_perfil) {
-        this.imagen_perfil = imagen_perfil;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 }

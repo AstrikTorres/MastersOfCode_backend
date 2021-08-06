@@ -26,6 +26,9 @@ public class ProyectosModel {
     @Column()
     private int precio;
 
+    @Column()
+    private String imagen;
+
     @OneToMany(targetEntity = ResenasModel.class, mappedBy = "proyectos")
     private List<ResenasModel> resenas;
 
@@ -72,4 +75,11 @@ public class ProyectosModel {
         this.precio = precio;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 }

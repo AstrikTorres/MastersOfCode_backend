@@ -23,15 +23,6 @@ public class SolicitudesModel {
     @Column(nullable = false)
     private String presupuesto;
 
-    @Column(nullable = false, length = 50)
-    private String referencia_foto;
-
-    @Column(nullable = false, length = 50)
-    private String referencia_link;
-
-    @Column(nullable = false, length = 50)
-    private String tiempo_estimado;
-
     @ManyToOne
     @JsonIgnore
     private UsuariosModel usuarios;
@@ -69,29 +60,5 @@ public class SolicitudesModel {
 
     public void setPresupuesto(String presupuesto) {
         this.presupuesto = presupuesto;
-    }
-
-    public String getReferencia_foto() {
-        return referencia_foto;
-    }
-
-    public void setReferencia_foto(String referencia_foto) {
-        this.referencia_foto = referencia_foto;
-    }
-
-    public String getReferencia_link() {
-        return referencia_link;
-    }
-
-    public void setReferencia_link(String referencia_link) {
-        this.referencia_link = referencia_link;
-    }
-
-    public String getTiempo_estimado() {
-        return tiempo_estimado;
-    }
-
-    public void setTiempo_estimado(String tiempo_estimado) {
-        this.tiempo_estimado = tiempo_estimado;
     }
 }

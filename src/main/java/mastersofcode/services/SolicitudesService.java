@@ -22,12 +22,8 @@ public class SolicitudesService {
         String nombre = solicitud.getNombre();
         String descripcion = solicitud.getDescripcion();
         String presupuesto = solicitud.getPresupuesto();
-        String foto = solicitud.getReferencia_foto();
-        String link = solicitud.getReferencia_link();
-        String tiempo_estimado = solicitud.getTiempo_estimado();
 
-        if (nombre != null && descripcion != null && presupuesto != null &&
-                foto != null && link != null && tiempo_estimado != null) {
+        if (nombre != null && descripcion != null && presupuesto != null) {
             return solicitudesRepository.save(solicitud);
         }
         return solicitud;

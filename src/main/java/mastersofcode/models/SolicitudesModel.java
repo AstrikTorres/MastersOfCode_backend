@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,7 +25,7 @@ public class SolicitudesModel {
     private String presupuesto;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     @OneToMany( targetEntity = PropuestasModel.class, mappedBy = "solicitudes")
@@ -60,5 +61,21 @@ public class SolicitudesModel {
 
     public void setPresupuesto(String presupuesto) {
         this.presupuesto = presupuesto;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public List<PropuestasModel> getPropuestas() {
+        return propuestas;
+    }
+
+    public void setPropuestas(List<PropuestasModel> propuestas) {
+        this.propuestas = propuestas;
     }
 }

@@ -23,7 +23,7 @@ public class ResenasService {
         String opinion = resena.getOpinion();
         int calificacion = resena.getCalificacion();
 
-        if (calificacion < 0 && resumen != null && opinion != null) {
+        if (calificacion > 0 && resumen != null && opinion != null) {
             return resenasRepository.save(resena);
         }
         return resena;

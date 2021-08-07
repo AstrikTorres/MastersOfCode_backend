@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ public class ResenasModel {
     @Column(nullable = false)
     private long id;
 
-    @Column(nullable = false, length = 1)
+    @Column(nullable = false)
     private int calificacion;
 
     @Column(nullable = false, length = 50)
@@ -23,11 +24,11 @@ public class ResenasModel {
     private String opinion;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = Access.WRITE_ONLY)
     private ProyectosModel proyectos;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     public long getId() {
@@ -60,5 +61,21 @@ public class ResenasModel {
 
     public void setOpinion(String opinion) {
         this.opinion = opinion;
+    }
+
+    public ProyectosModel getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(ProyectosModel proyectos) {
+        this.proyectos = proyectos;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
     }
 }

@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,11 +37,11 @@ public class ProyectosModel {
     private List<TecnologiasModel> tecnologias;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private ComprasModel compras;
 
     public long getId() {
@@ -81,5 +82,37 @@ public class ProyectosModel {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public List<ResenasModel> getResenas() {
+        return resenas;
+    }
+
+    public void setResenas(List<ResenasModel> resenas) {
+        this.resenas = resenas;
+    }
+
+    public List<TecnologiasModel> getTecnologias() {
+        return tecnologias;
+    }
+
+    public void setTecnologias(List<TecnologiasModel> tecnologias) {
+        this.tecnologias = tecnologias;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public ComprasModel getCompras() {
+        return compras;
+    }
+
+    public void setCompras(ComprasModel compras) {
+        this.compras = compras;
     }
 }

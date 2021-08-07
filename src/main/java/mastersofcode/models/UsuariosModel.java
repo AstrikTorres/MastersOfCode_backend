@@ -63,6 +63,9 @@ public class UsuariosModel {
 	@OneToMany( targetEntity = ResenasModel.class, mappedBy = "usuarios")
 	private List<ResenasModel> resenas;
 
+	@OneToMany( targetEntity = ProyectosModel.class, mappedBy = "usuarios")
+	private List<PropuestasModel> propuestas;
+
 	public long getId() {
 		return id;
 	}
@@ -133,5 +136,69 @@ public class UsuariosModel {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public List<SolicitudesModel> getSolicitudes() {
+		return solicitudes;
+	}
+
+	public void setSolicitudes(List<SolicitudesModel> solicitudes) {
+		this.solicitudes = solicitudes;
+	}
+
+	public ExperienciaModel getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(ExperienciaModel experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public EducacionModel getEducacion() {
+		return educacion;
+	}
+
+	public void setEducacion(EducacionModel educacion) {
+		this.educacion = educacion;
+	}
+
+	public List<ProyectosModel> getProyectos() {
+		return proyectos;
+	}
+
+	public void setProyectos(List<ProyectosModel> proyectos) {
+		this.proyectos = proyectos;
+	}
+
+	public List<CuentasBancariasModel> getCuentas() {
+		return cuentas;
+	}
+
+	public void setCuentas(List<CuentasBancariasModel> cuentas) {
+		this.cuentas = cuentas;
+	}
+
+	public List<ComprasModel> getCompras() {
+		return compras;
+	}
+
+	public void setCompras(List<ComprasModel> compras) {
+		this.compras = compras;
+	}
+
+	public List<TecnologiasModel> getTecnologias() {
+		return tecnologias;
+	}
+
+	public void setTecnologias(List<TecnologiasModel> tecnologias) {
+		this.tecnologias = tecnologias;
+	}
+
+	public List<ResenasModel> getResenas() {
+		return resenas;
+	}
+
+	public void setResenas(List<ResenasModel> resenas) {
+		this.resenas = resenas;
 	}
 }

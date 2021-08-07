@@ -1,6 +1,5 @@
 package mastersofcode.controllers;
 
-import mastersofcode.models.ProyectosModel;
 import mastersofcode.models.ResenasModel;
 import mastersofcode.services.ResenasService;
 import org.springframework.beans.factory.annotation.Autowired;

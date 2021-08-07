@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -20,11 +21,12 @@ public class PropuestasModel {
     private String imagen_propuesta;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private SolicitudesModel solicitudes;
 
-    // Como conectar a usuarios
-
+    @ManyToOne
+    @JsonIgnore
+    private UsuariosModel usuarios;
 
     public long getId() {
         return id;
@@ -48,5 +50,21 @@ public class PropuestasModel {
 
     public void setImagen_propuesta(String imagen_propuesta) {
         this.imagen_propuesta = imagen_propuesta;
+    }
+
+    public SolicitudesModel getSolicitudes() {
+        return solicitudes;
+    }
+
+    public void setSolicitudes(SolicitudesModel solicitudes) {
+        this.solicitudes = solicitudes;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
     }
 }

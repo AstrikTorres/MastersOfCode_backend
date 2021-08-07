@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -17,11 +18,11 @@ public class TecnologiasModel {
     private String tecnologia;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private ProyectosModel proyectos;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     public long getId() {
@@ -38,5 +39,21 @@ public class TecnologiasModel {
 
     public void setTecnologia(String tecnologia) {
         this.tecnologia = tecnologia;
+    }
+
+    public ProyectosModel getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(ProyectosModel proyectos) {
+        this.proyectos = proyectos;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
     }
 }

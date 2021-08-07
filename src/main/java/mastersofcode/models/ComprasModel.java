@@ -1,6 +1,6 @@
 package mastersofcode.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ComprasModel {
     private CuentasBancariasModel cuentas;
 
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     public long getId() {
@@ -64,5 +64,29 @@ public class ComprasModel {
 
     public void setPrecio_total(int precio_total) {
         this.precio_total = precio_total;
+    }
+
+    public List<ProyectosModel> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(List<ProyectosModel> proyectos) {
+        this.proyectos = proyectos;
+    }
+
+    public CuentasBancariasModel getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(CuentasBancariasModel cuentas) {
+        this.cuentas = cuentas;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
     }
 }

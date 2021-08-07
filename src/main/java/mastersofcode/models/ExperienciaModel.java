@@ -1,6 +1,7 @@
 package mastersofcode.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -23,7 +24,7 @@ public class ExperienciaModel {
     private String descripcion;
 
     @OneToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private UsuariosModel usuarios;
 
     public long getId() {
@@ -56,5 +57,13 @@ public class ExperienciaModel {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public UsuariosModel getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(UsuariosModel usuarios) {
+        this.usuarios = usuarios;
     }
 }

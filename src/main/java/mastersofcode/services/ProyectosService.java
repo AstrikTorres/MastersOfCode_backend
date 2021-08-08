@@ -33,6 +33,10 @@ public class ProyectosService {
         return proyectosRepository.findById(id);
     }
 
+    public Optional<ProyectosModel> getProyectoByTitulo(String titulo){
+        return proyectosRepository.findByTitulo(titulo);
+    }
+
     public boolean deleteProyecto(Long id) {
         try {
            proyectosRepository.deleteById(id);
@@ -40,10 +44,6 @@ public class ProyectosService {
         } catch (Exception error) {
             return false;
         }
-    }
-
-    public ArrayList<ProyectosModel> getProyectoByTitulo(String titulo) {
-        return proyectosRepository.findByTitulo(titulo);
     }
 
 }

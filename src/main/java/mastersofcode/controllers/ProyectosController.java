@@ -43,9 +43,8 @@ public class ProyectosController {
         }
     }
 
-    @GetMapping("/titulo")
-    public ArrayList<ProyectosModel> getProyectoByTitulo
-            (@RequestParam(value = "titulo", defaultValue = "") String titulo) {
+    @GetMapping(path = "/titulo/{titulo}")
+    public Optional<ProyectosModel> getProyectoById(@PathVariable("titulo") String titulo) {
         return proyectosService.getProyectoByTitulo(titulo);
     }
 

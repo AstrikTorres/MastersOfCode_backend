@@ -28,4 +28,13 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
 		return new User(usuariosModel.getUsername(), usuariosModel.getPassword(), emptyList());
 	}
 
+	public boolean deleteUsuario(Long id) {
+		try {
+			usuarioRepository.deleteById(id);
+			return true;
+		} catch (Exception error) {
+			return false;
+		}
+	}
+
 }

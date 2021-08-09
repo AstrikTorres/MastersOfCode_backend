@@ -2,6 +2,8 @@ package mastersofcode.controllers;
 
 import mastersofcode.models.UsuariosModel;
 import mastersofcode.repositories.UsuarioRepository;
+import mastersofcode.services.UsuarioDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,9 @@ import java.util.List;
 
 @RestController
 public class UsuarioController {
+
+	@Autowired
+	UsuarioDetailsServiceImpl usuarioDetailsService;
 
 	private UsuarioRepository usuarioRepository;
 
@@ -42,5 +47,14 @@ public class UsuarioController {
 
 	}
 
+	@DeleteMapping("/user/{id}")
+	public String deleteUsuario(@PathVariable("id") Long id) {
+		boolean ok = usuarioDetailsService.deleteUsuario(id);
+		if (ok) {
+			return "Se elimino el usuario";
+		} else {
+			return "No se pudo eliminar";
+		}
+	}
 
 }
